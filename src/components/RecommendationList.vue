@@ -88,6 +88,32 @@
 
     <!-- 帖子列表 -->
     <div class="post-list">
+
+      <div v-if="!isLoginTag"
+          class="post-item"
+      >
+        <div class="post-header">
+          <span style="color:rgba(0,0,0,.72);font-weight:700">本网站已开源4万本韩国汉化小说</span>
+          <div class="post-meta">
+            <span class="author"></span>
+            <span class="time"></span>
+          </div>
+        </div>
+        <div class="post-content">
+          <p>本网站开源代码数据链接(包含了代码、文档、数据)：https://note.youdao.com/s/1vKsApoh</p>
+          <p>之前就说过，这个网站的内容全部是用deepseek汉化的，其实加上术语表之后，汉化出来的内容并不比市面上的个别人翻差。</p>
+          <p>因为用的是硅基流动跟火山引擎的apiKey（新人赠金），所以汉化一本几百万字的书也就花1毛钱左右，如果有渠道的话更便宜。</p>
+          <p>novelPia上面的小说数量并不多，所以之前就发过一个帖子，讲诉了如何获取书兔网上面的小说。</p>
+          <p>可以说，小贩手上的资源99%都是从这书兔网上面爬下来的。 </p>
+        </div>
+        <div class="post-stats" v-if="isLoginTag">
+          <span class="comment">
+            <i class="icon-comment"></i> post.commentNum
+            <i v-if="activeNav === 0" class="icon-book"></i> activeNav === 0 ? post.collectionsTitle : ''
+          </span>
+        </div>
+      </div>
+
       <div
           v-for="(post, index) in posts"
           :key="index"
